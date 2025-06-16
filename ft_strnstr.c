@@ -17,13 +17,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 	size_t	little_len;
-	size_t	big_len;
 
-	big_len = ft_strlen(big);
 	little_len = ft_strlen(little);
 	i = 0;
-	if ((len == 0) || (little_len > big_len))
-		return (NULL);
 	if (little[0] == '\0')
 		return ((char *)big);
 	while (i + little_len < len)

@@ -23,7 +23,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	lenone = ft_strlen(s1);
 	lentwo = ft_strlen(s2);
-	res = malloc(sizeof(char) + (lenone + lentwo + 1));
+	res = malloc(sizeof(char) * (lenone + lentwo + 1));
 	i = 0;
 	j = 0;
 	while (s1[i])
