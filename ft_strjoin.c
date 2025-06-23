@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
@@ -24,13 +23,12 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	lenone = ft_strlen(s1);
 	lentwo = ft_strlen(s2);
 	res = malloc(sizeof(char) * (lenone + lentwo + 1));
-	i = 0;
+	if (!res)
+		return (NULL);
+	i = -1;
 	j = 0;
-	while (s1[i])
-	{
+	while (s1[++i])
 		res[i] = s1[i];
-		i++;
-	}
 	while (s2[j])
 	{
 		res[i] = s2[j];

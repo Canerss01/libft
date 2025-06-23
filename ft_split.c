@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 static int	word_count(char *str, char c)
 {
@@ -52,6 +52,19 @@ static char	*fill_word(char *start, char c)
 	return (res);
 }
 
+static void	delete_everything(char **res, int j)
+{
+	int	i;
+
+	i = 0;
+	while (i < j)
+	{
+		free(res[i]);
+		i++;
+	}
+	free(res);
+}
+
 char	**ft_split(char *str, char c)
 {
 	int		i;
@@ -70,6 +83,8 @@ char	**ft_split(char *str, char c)
 		if (str[i])
 		{
 			res[j++] = fill_word(&str[i], c);
+			if (!res[j - 1])
+				return (delete_everything(res, j - 1), NULL);
 			while (str[i] && str[i] != c)
 				i++;
 		}

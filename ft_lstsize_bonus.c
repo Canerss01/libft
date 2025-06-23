@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pıtendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccakir <ccakir@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/06 02:20:58 by ccakir            #+#    #+#             */
-/*   Updated: 2025/06/06 02:20:58 by ccakir           ###   ########.fr       */
+/*   Created: 2025/06/12 14:57:12 by ccakir            #+#    #+#             */
+/*   Updated: 2025/06/12 14:57:12 by ccakir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+int	ft_lstsize(t_list *lst)
 {
-	int	i;
+	t_list	*tmp;
+	int		i;
 
-	if (s == NULL)
-		return ;
+	tmp = lst;
 	i = 0;
-	while (s[i])
-		write (fd, &s[i++], 1);
-	write (fd, "\n", 1);
+	while (tmp)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	return (i);
 }

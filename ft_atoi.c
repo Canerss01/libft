@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	is_space(char c)
+static int	is_space(char c)
 {
 	if (c == ' ' || (c >= 9 && c <= 13))
 	{
@@ -38,6 +38,8 @@ int	ft_atoi(const char *number)
 	}
 	while ((number[i] >= '0' ) && (number[i] <= '9'))
 	{
+		if ((res + (number[i] - 48)) > 2147483647)
+			return (-1);
 		res = (res * 10) + (number[i] - 48);
 		i++;
 	}

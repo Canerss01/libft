@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 static int	countfounder(int n)
 {
@@ -31,10 +31,11 @@ static int	countfounder(int n)
 	return (i);
 }
 
-static void	itszero(char	*res)
+static char	*itszero(char	*res)
 {
 	res[0] = 48;
 	res[1] = '\0';
+	return (res);
 }
 
 char	*ft_itoa(int n)
@@ -46,16 +47,15 @@ char	*ft_itoa(int n)
 	ncp = n;
 	len = countfounder(ncp);
 	res = malloc(sizeof(char) * (len + 1));
+	if (!res)
+		return (NULL);
 	if (ncp < 0)
 	{
 		res[0] = '-';
 		ncp *= -1;
 	}
 	if (ncp == 0)
-	{
-		itszero(res);
-		return (res);
-	}
+		return (itszero(res));
 	res[len] = '\0';
 	while (--len >= 0 && res[len] != '-')
 	{

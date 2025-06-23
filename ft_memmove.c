@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -18,13 +18,15 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	char	*ptr;
 	char	*ptr2;
 
+	if (!dest && !src)
+		return (NULL);
 	i = 0;
 	ptr = (char *) dest;
 	ptr2 = (char *) src;
 	if (dest > src)
 	{
 		i = n;
-		while (i--)
+		while (i-- > 0)
 			ptr[i] = ptr2[i];
 	}
 	while (i < n)
@@ -34,3 +36,4 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
+
